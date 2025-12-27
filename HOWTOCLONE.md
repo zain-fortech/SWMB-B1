@@ -15,3 +15,5 @@ https://github.com/zain-fortech/SWMB-B1
 13. Run: git clone git@github.com:zain-fortech/SWMB-B1.git
 
 Here you go...
+
+An example video in case yuo face errors: https://www.youtube.com/watch?v=yVP3sYgd0bY
