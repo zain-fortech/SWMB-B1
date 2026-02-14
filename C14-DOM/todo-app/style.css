@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.container {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: aliceblue;
+  padding: 1rem;
+}
+
+.tasks-list {
+  padding: 0;
+}
+
+.delete-btn {
+  padding: 0.3rem;
+  background-color: rgb(166, 175, 175);
+  border: none;
+  max-height: 1.7rem;
+  cursor: pointer;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
