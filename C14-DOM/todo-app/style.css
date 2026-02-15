@@ -18,7 +18,7 @@ h2 {
   padding: 0;
 }
 
-.delete-btn {
+.btn {
   padding: 0.3rem;
   background-color: rgb(166, 175, 175);
   border: none;
@@ -30,4 +30,19 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.filters {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.filters > button {
+  flex: 1;
+  font-size: 0.5rem;
+}
+
+.completed-task {
+  text-decoration: line-through;
 }
