@@ -45,7 +45,9 @@ const renderTasks = () => {
     h3.className = task.isCompleted ? "completed-task" : "";
 
     const button = document.createElement("button");
-    button.textContent = "Mark Completed";
+    button.textContent = task.isCompleted
+      ? "Mark Incompleted"
+      : "Mark Completed";
     button.className = "btn";
 
     button.addEventListener("click", () => {
@@ -69,7 +71,7 @@ const completeTask = (li) => {
 
   tasks = tasks.map((task) => {
     if (task.text == taskDetail) {
-      task.isCompleted = true;
+      task.isCompleted = !task.isCompleted;
     }
 
     return task;
