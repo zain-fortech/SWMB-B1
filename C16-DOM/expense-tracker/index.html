@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form">
+        <span>
+          <label>Add title of your expense:</label>
+          <input type="text" id="title-input" />
+        </span>
+
+        <span>
+          <label>Add amount of your expense:</label>
+          <input type="number" id="amount-input" />
+        </span>
+
+        <button id="add-expense">Add Expense</button>
+      </form>
+
+      <hr />
+
+      <ul class="expenses">
+        <li class="expense">
+          <span><b>Title</b></span>
+          <span><b>Amount</b></span>
+          <span><b>Actions</b></span>
+        </li>
+      </ul>
+
+      <div class="total-wrapper">
+        <div class="total-amount">
+          <span><b>Total:</b></span>
+          <span>00</span>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
