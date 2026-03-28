@@ -1,14 +1,14 @@
 import React from "react";
 
-function Input(props) {
+function Input({ onChange, value, placeholder, type, id }) {
   return (
     <input
       className="input"
-      id={props.id}
-      type={props.type}
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={(e) => props.onChange(e.target.value)}
+      id={id}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     />
   );
 }

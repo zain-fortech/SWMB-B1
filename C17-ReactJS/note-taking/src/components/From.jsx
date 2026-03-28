@@ -15,7 +15,7 @@ function Form({ onSubmit }) {
   };
 
   return (
-    <form class="inputs-wrapper">
+    <form className="inputs-wrapper">
       <Input
         id="title"
         type="text"
