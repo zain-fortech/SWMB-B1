@@ -1,41 +1,23 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
-import Form from "./components/From";
-import TasksList from "./components/TasksList";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import NotFound from "./pages/NotFound";
+import Nav from "./components/Nav";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  const addNote = (title, detail) => {
-    setTasks((prevTasks) => [...prevTasks, { title, detail }]);
-  };
-
-  const fetchFromAPI = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => {
-        console.log("Data from API:", json);
-
-        setTasks(json);
-      });
-  };
-
-  useEffect(() => {
-    /**
-     * Fetch tasks from API / DB.
-     */
-
-    console.log("Hi from useEffect!");
-
-    fetchFromAPI();
-  }, []);
-
   return (
-    <div className="container">
-      <Form onSubmit={addNote}></Form>
-
-      <TasksList tasksList={tasks}></TasksList>
-    </div>
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
