@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
+import TaskDetail from "./components/TaskDetail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/tasks/:id" element={<TaskDetail />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </>

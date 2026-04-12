@@ -8,7 +8,7 @@ function TasksList({ tasksList }) {
 
       <ul className="notes-list">
         {tasksList?.map((task) => (
-          <Task title={task.title}></Task>
+          <Task title={task.title} id={task.id}></Task>
         ))}
       </ul>
     </div>

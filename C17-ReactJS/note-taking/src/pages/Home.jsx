@@ -24,9 +24,6 @@ function Home() {
     /**
      * Fetch tasks from API / DB.
      */
-
-    console.log("Hi from useEffect!");
-
     fetchFromAPI();
   }, []);
 
