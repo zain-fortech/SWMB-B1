@@ -1,0 +1,71 @@
+:root {
+  --light-bg-color: gray;
+  --dark-them-background-color: black;
+
+  --light-container-bg-color: rgb(237, 237, 237);
+
+  --light-border-color: #1919ce;
+
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light-bg-color);
+  font-size: 16px;
+}
+
+.container {
+  background-color: var(--light-container-bg-color);
+  padding: 3rem;
+}
+
+.heading {
+  border-bottom: 1px solid var(--light-bg-color);
+}
+
+strong {
+  border: 1px dotted var(--light-border-color);
+  width: 100%;
+  display: block;
+  padding: 1rem;
+}
+
+.contact-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+  animation: floatBtn 4s infinite ease-in-out;
+
+  cursor: pointer;
+
+  border: 1px solid var(--light-container-bg-color);
+  padding: 0.3rem;
+}
+
+.contact-btn:hover {
+  background-color: var(--white);
+}
+
+@keyframes floatBtn {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-10px, 0);
+  }
+
+  50% {
+    transform: translate(-10px, -10px);
+  }
+
+  75% {
+    transform: translate(0, -10px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}

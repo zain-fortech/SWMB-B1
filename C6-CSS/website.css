@@ -11,6 +11,30 @@ body {
   height: 100vh;
 }
 
+@media (max-width: 786px) {
+  .root {
+    /* grid-template-columns: 1fr;
+    grid-template-rows: 10vh 10vh 1fr 5vh;
+    grid-template-areas: "header" "sidebar" "main" "footer"; */
+  }
+}
+
+@media (max-width: 600px) {
+  .root {
+    /* grid-template-columns: 1fr;
+    grid-template-rows: 10vh 10vh 1fr 5vh;
+    grid-template-areas: "header" "sidebar" "main" "footer"; */
+  }
+}
+
+@media (max-width: 324px) {
+  .root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 10vh 1fr 5vh;
+    grid-template-areas: "header" "sidebar" "main" "footer";
+  }
+}
+
 .header {
   grid-area: header;
   display: flex;
