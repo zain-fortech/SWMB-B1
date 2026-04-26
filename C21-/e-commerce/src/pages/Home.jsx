@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Product } from "../components/Product";
+import { CartContext } from "../context/cart-context";
+import { CartCuont } from "../components/CartCount";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -35,11 +38,31 @@ export function Home() {
     fetchProducts();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col justify-center bg-mint-500 min-h-screen gap-y-5">
-      <span className="">
-        <h1 className="text-4xl text-center font-bolder">Products List</h1>
-      </span>
+      <div className="flex p-4">
+        <div className="flex-1 flex gap-4">
+          <span className="">
+            <h4
+              className="text-xl text-center font-bolder underline cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              Products List
+            </h4>
+          </span>
+          <span className="">
+            <h4
+              className="text-xl text-center font-bolder underline cursor-pointer"
+              onClick={() => navigate("/cart")}
+            >
+              Go to Cart
+            </h4>
+          </span>
+        </div>
+        <CartCuont />
+      </div>
 
       <div className="flex flex-wrap border-1-black h-24 flex-1 gap-x-4 gap-y-4 overflow-auto align-start p-20 justify-between">
         {products.map((product) => {
