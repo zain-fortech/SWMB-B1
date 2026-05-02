@@ -14,8 +14,6 @@ function Home() {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => {
-        console.log("Data from API:", json);
-
         setTasks(json);
       });
   };

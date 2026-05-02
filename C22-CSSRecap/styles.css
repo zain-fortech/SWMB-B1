@@ -1,0 +1,11 @@
+@import "./items.css";
+
+body {
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
