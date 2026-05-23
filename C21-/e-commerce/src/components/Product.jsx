@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../context/cart-context";
 
 export function Product({ product }) {
-  const { setCart } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   const [btnText, setBtnText] = useState("Add to cart");
 
@@ -13,7 +13,7 @@ export function Product({ product }) {
   };
 
   const addToCart = (product) => {
-    setCart((prevValue) => [...prevValue, { ...product, quantity: 1 }]);
+    dispatch({ type: "ADD_TO_CART", payload: product });
 
     setBtnText("Successfully added!");
 

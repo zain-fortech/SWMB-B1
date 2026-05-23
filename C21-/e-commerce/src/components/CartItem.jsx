@@ -2,36 +2,18 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/cart-context";
 
 export const CartItem = ({ item }) => {
-  const { setCart } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   const increaseQty = (itemId) => {
-    setCart((prevValue) => {
-      return prevValue.map((cartItem) => {
-        if (cartItem.id == itemId) {
-          return {
-            ...cartItem,
-            quantity: cartItem.quantity + 1,
-          };
-        } else {
-          return cartItem;
-        }
-      });
-    });
+    dispatch({ type: "INCREMENT_QUANTITY", payload: itemId });
   };
 
   const decreaseQty = (itemId) => {
-    setCart((prevValue) => {
-      return prevValue.map((cartItem) => {
-        if (cartItem.id == itemId) {
-          return {
-            ...cartItem,
-            quantity: cartItem.quantity - 1,
-          };
-        } else {
-          return cartItem;
-        }
-      });
-    });
+    dispatch({ type: "DECREMENT_QUANTITY", payload: itemId });
+  };
+
+  const removeFromCart = (itemId) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: itemId });
   };
 
   return (
@@ -41,7 +23,15 @@ export const CartItem = ({ item }) => {
       </div>
 
       <div className="flex flex-col flex-auto px-2 gap-y-1">
-        <span className="font-bold">{item.title}</span>
+        <span className="font-bold flex justify-between">
+          <span>{item.title}</span>
+          <span
+            className="cursor-pointer hover:bg-red-500 px-1"
+            onClick={() => removeFromCart(item.id)}
+          >
+            X
+          </span>
+        </span>
         <span className="text-xs">{item.shippingInformation}</span>
         <span className="flex gap-x-2">
           <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-gray-600 inset-ring inset-ring-gray-500/10">
