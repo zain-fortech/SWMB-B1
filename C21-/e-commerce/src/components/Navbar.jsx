@@ -1,12 +1,13 @@
 import React from "react";
 import { CartCuont } from "./CartCount";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "./Auth";
 
 export function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex p-4">
+    <div className="flex p-4 gap-x-4">
       <div className="flex-1 flex gap-4">
         <span className="">
           <h4
@@ -26,6 +27,7 @@ export function Navbar() {
         </span>
       </div>
       <CartCuont />
+      <Auth />
     </div>
   );
 }

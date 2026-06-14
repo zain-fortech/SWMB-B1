@@ -4,6 +4,7 @@ import { Router } from "./components/Router";
 import { CartContext } from "./context/cart-context";
 import { cartRedcuer } from "./reducers/cart-reducer";
 import useLocalStorage from "./hooks/useLocalStorage";
+import { AuthProvider } from "./Providers/AuthProvider";
 
 const initialCart = JSON.parse(localStorage.getItem("cart"));
 
@@ -13,9 +14,11 @@ function App() {
   useLocalStorage(cart);
 
   return (
-    <CartContext value={{ cart, dispatch }}>
-      <Router />
-    </CartContext>
+    <AuthProvider>
+      <CartContext value={{ cart, dispatch }}>
+        <Router />
+      </CartContext>
+    </AuthProvider>
   );
 }
 
