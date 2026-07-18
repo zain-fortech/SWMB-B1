@@ -4,8 +4,17 @@ const jwt = require("jsonwebtoken");
 
 const controllers = {
   signup: async (req, res) => {
-    const { name, email, phone, countryCode, password, DOB, address, CNIC } =
-      req.body;
+    const {
+      name,
+      email,
+      phone,
+      countryCode,
+      password,
+      DOB,
+      address,
+      CNIC,
+      role,
+    } = req.body;
 
     const user = new User({
       name,
@@ -15,6 +24,7 @@ const controllers = {
       password,
       DOB,
       address,
+      role,
       CNIC,
     });
 

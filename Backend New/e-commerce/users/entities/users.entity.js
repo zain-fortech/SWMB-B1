@@ -19,7 +19,7 @@ const usersSceham = new Schema({
 
   token_identifier: String,
 
-  role: String,
+  role: String, // Admin, Buyer, Driver
 });
 
 const User = model("User", usersSceham);
