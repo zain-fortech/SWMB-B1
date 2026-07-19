@@ -1,6 +1,7 @@
 const { randomBytes } = require("node:crypto");
 const User = require("./entities/users.entity");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const controllers = {
   signup: async (req, res) => {
@@ -16,16 +17,20 @@ const controllers = {
       role,
     } = req.body;
 
+    const salt = await bcrypt.genSalt(5);
+
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const user = new User({
       name,
       email,
       phone,
       countryCode,
-      password,
+      password: hashedPassword,
       DOB,
       address,
-      role,
       CNIC,
+      role,
     });
 
     await User.create(user);
@@ -38,11 +43,24 @@ const controllers = {
   signin: async (req, res) => {
     const { email, password } = req.body;
 
-    const existingUser = await User.findOne({ email, password });
+    const existingUser = await User.findOne({ email });
+
+    const unauthorizedMessage = "Incorrect email and password combination.";
 
     if (!existingUser) {
       return res.status(401).json({
-        message: "Incorrect email or password.",
+        message: unauthorizedMessage,
+      });
+    }
+
+    const passwordMatched = await bcrypt.compare(
+      password,
+      existingUser.password, // hashed password saved in the DB.
+    );
+
+    if (!passwordMatched) {
+      return res.status(401).json({
+        message: unauthorizedMessage,
       });
     }
 
